@@ -1,0 +1,13 @@
+product_id,review_text,rating,location,product_version
+prd_001,"The camera quality and OLED display are absolutely phenomenal! Best photo performance I have seen.",5.0,USA,v2.1
+prd_001,"Battery drain increased significantly after the latest software update v2.1. Phone gets warm during 4K video recording.",2.0,UK,v2.1
+prd_002,"Keyboard action and trackpad responsiveness are elite. Ideal machine for developers.",5.0,USA,v1.2
+prd_002,"Fan noise becomes loud under compiled loads, but thermals remain acceptable.",4.0,France,v1.2
+prd_003,"Noise cancellation in airplane cabins is outstanding. Deep rich bass and comfortable ear cups.",5.0,USA,v1.0
+prd_004,"Maximum cushion comfort for marathon training. Fit runs true to size.",5.0,USA,v1.0
+prd_005,"Teaching quality and hands-on practical projects are exceptional. The instructor responds quickly to Q&A.",5.0,Global,v3.0
+prd_006,"Food quality and taste were top tier. Staff behavior was warm and attentive throughout dinner.",5.0,NYC,v1.0
+prd_007,"Usability and uptime reliability are outstanding. API integrations saved our team dozens of hours.",5.0,USA,v4.1
+prd_008,"Noticed skin texture improvement and glow within 2 weeks of daily morning application.",5.0,UK,v1.0
+prd_009,"Ocean view suite was spotless and house staff provided five star hospitality.",5.0,USA,v1.0
+prd_010,"Instant transfer speed and high yield interest payout make this my primary banking app.",5.0,USA,v2.4

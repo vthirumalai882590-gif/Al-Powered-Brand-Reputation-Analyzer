@@ -1,0 +1,47 @@
+# Dependencies
+node_modules/
+venv/
+env/
+.venv/
+
+# Python cache & build
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+dist/
+build/
+*.egg-info/
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+coverage/
+
+# Vite & Frontend build
+dist/
+dist-ssr/
+*.local
+*.timestamp-*.mjs
+
+# Environment & Secrets
+.env
+.env.*
+!.env.example
+
+# Databases & logs
+*.db
+*.sqlite
+*.sqlite3
+brandpulse.db
+logs/
+*.log
+tmp/
+scratch/
+
+# IDE & OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

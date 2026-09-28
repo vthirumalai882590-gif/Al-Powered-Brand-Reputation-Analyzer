@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --bg-primary: #f4f7f6;
+    --bg-card: #ffffff;
+    --border-card: #e2e8f0;
+    --color-primary: #007a6e;
+    --color-primary-hover: #006258;
+    --color-primary-light: #e6f4f2;
+    --text-heading: #0f172a;
+    --text-body: #334155;
+    --text-muted: #64748b;
+  }
+}
+
+body {
+  background-color: #f4f7f6;
+  color: #334155;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Executive Light Theme primitives */
+.glass-panel {
+  background: #ffffff;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px 0 rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease-in-out;
+}
+
+.glass-card:hover {
+  background: #ffffff;
+  border-color: #007a6e;
+  box-shadow: 0 10px 25px -5px rgba(0, 122, 110, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  transform: translateY(-2px);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #007a6e 0%, #0d9488 50%, #0369a1 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-glow {
+  position: relative;
+}
+.gradient-glow::before {
+  content: '';
+  position: absolute;
+  top: -2px; left: -2px; right: -2px; bottom: -2px;
+  background: linear-gradient(135deg, #007a6e, #0d9488, #0284c7);
+  border-radius: inherit;
+  z-index: -1;
+  opacity: 0.15;
+  filter: blur(6px);
+  transition: opacity 0.3s ease;
+}
+.gradient-glow:hover::before {
+  opacity: 0.35;
+}
+
+/* Badges matching OpsPilot theme */
+.badge-teal-filled {
+  background-color: #007a6e;
+  color: #ffffff;
+}
+
+.badge-teal-light {
+  background-color: #e6f4f2;
+  color: #007a6e;
+  border: 1px solid #b2dfdb;
+}
+
+.badge-orange-light {
+  background-color: #fff7ed;
+  color: #ea580c;
+  border: 1px solid #ffedd5;
+}
+
+.badge-green-light {
+  background-color: #f0fdf4;
+  color: #166534;
+  border: 1px solid #dcfce7;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

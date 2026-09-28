@@ -1,0 +1,30 @@
+[
+  {
+    "product_id": "prd_001",
+    "review_text": "The camera quality and OLED display are absolutely phenomenal! Best photo performance I have seen.",
+    "rating": 5.0,
+    "location": "USA",
+    "product_version": "v2.1"
+  },
+  {
+    "product_id": "prd_001",
+    "review_text": "Battery drain increased significantly after the latest software update v2.1. Phone gets warm during 4K video recording.",
+    "rating": 2.0,
+    "location": "UK",
+    "product_version": "v2.1"
+  },
+  {
+    "product_id": "prd_002",
+    "review_text": "Keyboard action and trackpad responsiveness are elite. Ideal machine for developers.",
+    "rating": 5.0,
+    "location": "USA",
+    "product_version": "v1.2"
+  },
+  {
+    "product_id": "prd_007",
+    "review_text": "Usability and uptime reliability are outstanding. API integrations saved our team dozens of hours.",
+    "rating": 5.0,
+    "location": "USA",
+    "product_version": "v4.1"
+  }
+]
