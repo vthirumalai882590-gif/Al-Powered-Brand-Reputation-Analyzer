@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
-import { Activity, Search, Scale, Sparkles, LayoutDashboard, LogOut, ShieldCheck, Compass, SlidersHorizontal, User } from 'lucide-react';
+import { Activity, Search, Scale, Sparkles, LayoutDashboard, LogOut, ShieldCheck, Compass, SlidersHorizontal, User, BrainCircuit } from 'lucide-react';
 import { UserRole } from '../types';
 
 export const Navbar: React.FC = () => {
@@ -79,6 +79,16 @@ export const Navbar: React.FC = () => {
               >
                 AI Assistant
               </Link>
+              <Link
+                to="/ai-analyzer"
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                  isActive('/ai-analyzer')
+                    ? 'bg-purple-700 text-white shadow-xs'
+                    : 'text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200'
+                }`}
+              >
+                <BrainCircuit className="w-3.5 h-3.5 text-purple-600" /> Live AI Model
+              </Link>
             </>
           )}
 
@@ -124,6 +134,16 @@ export const Navbar: React.FC = () => {
               >
                 Action Tracker
               </Link>
+              <Link
+                to="/ai-analyzer"
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                  isActive('/ai-analyzer')
+                    ? 'bg-purple-700 text-white shadow-xs'
+                    : 'text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200'
+                }`}
+              >
+                <BrainCircuit className="w-3.5 h-3.5 text-purple-600" /> Live AI Model
+              </Link>
             </>
           )}
 
@@ -138,6 +158,16 @@ export const Navbar: React.FC = () => {
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5" /> Admin Console
+              </Link>
+              <Link
+                to="/ai-analyzer"
+                className={`px-3.5 py-1.5 rounded-full text-xs font-semibold flex items-center gap-1.5 transition-all ${
+                  isActive('/ai-analyzer')
+                    ? 'bg-purple-700 text-white shadow-xs'
+                    : 'text-purple-700 bg-purple-50 hover:bg-purple-100 border border-purple-200'
+                }`}
+              >
+                <BrainCircuit className="w-3.5 h-3.5 text-purple-600" /> Live AI Model
               </Link>
             </>
           )}

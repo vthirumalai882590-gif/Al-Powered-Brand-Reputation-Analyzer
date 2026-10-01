@@ -11,6 +11,7 @@ import { ProductTrustExplorer } from './pages/ProductTrustExplorer';
 import { ProductComparison } from './pages/ProductComparison';
 import { PersonalFitFinder } from './pages/PersonalFitFinder';
 import { AIAssistant } from './pages/AIAssistant';
+import { AIReviewAnalyzer } from './pages/AIReviewAnalyzer';
 
 import { OwnerOverview } from './pages/OwnerOverview';
 import { OwnerReputationCommand } from './pages/OwnerReputationCommand';
@@ -38,6 +39,7 @@ export function App() {
                 <Route path="/compare" element={<ProductComparison />} />
                 <Route path="/fit-finder" element={<PersonalFitFinder />} />
                 <Route path="/assistant" element={<AIAssistant />} />
+                <Route path="/ai-analyzer" element={<AIReviewAnalyzer />} />
 
                 {/* Owner Routes */}
                 <Route path="/owner/overview" element={<OwnerOverview />} />

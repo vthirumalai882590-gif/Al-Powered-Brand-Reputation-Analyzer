@@ -6,10 +6,10 @@ This document provides complete instructions for deploying the **BrandPulse AI**
 
 ## 🏗️ Architecture Overview
 
-| Component | Technology | Recommended Hosting | Description |
+| Component | Technology | Hosting | Description |
 | :--- | :--- | :--- | :--- |
-| **Frontend** | React 18 + Vite + Tailwind CSS | **Vercel** | Ultra-fast Global Edge CDN, automated SSL, CI/CD from Git |
-| **Backend API** | FastAPI + Python 3.11 + ML | **Render / Railway / Fly.io / VPS** | Long-running containerized ASGI server with ML packages & database |
+| **All-in-One Vercel App** | React 18 + Vite + Embedded AI Engine | **Vercel** | **100% Standalone Ready**: Runs the entire catalog, NLP sentiment model, emotion classifier, fake review detector, personal fit engine, and AI assistant directly in-browser with zero latency. |
+| **Optional External Backend** | FastAPI + Python 3.11 + SQLite | **Render / Railway / Docker** | Optional containerized service for heavy server-side batch ETL if desired (`VITE_API_URL`). |
 
 ---
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { Search, ShieldCheck, ArrowRight, Smartphone, Laptop, Footprints, GraduationCap, Utensils, Headphones, Building2, Sparkles, CheckCircle2 } from 'lucide-react';
+import { Search, ShieldCheck, ArrowRight, Smartphone, Laptop, Footprints, GraduationCap, Utensils, Headphones, Building2, Sparkles, CheckCircle2, BrainCircuit } from 'lucide-react';
 import { api } from '../services/api';
 
 export const CustomerHome: React.FC = () => {
@@ -95,6 +95,30 @@ export const CustomerHome: React.FC = () => {
             <span>{totalReviewsCount.toLocaleString('en-IN')} Analyzed Reviews</span>
             <span>•</span>
             <span>0% Hallucinated Scores</span>
+          </div>
+
+          {/* Live AI Model Showcase Banner */}
+          <div className="pt-4 max-w-2xl mx-auto">
+            <Link
+              to="/ai-analyzer"
+              className="bg-purple-50 hover:bg-purple-100 border border-purple-200 text-purple-900 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-left transition-all shadow-xs group"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-purple-700 text-white flex items-center justify-center shrink-0 shadow-sm">
+                  <BrainCircuit className="w-5 h-5 text-white" />
+                </div>
+                <div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="font-extrabold text-xs text-purple-950">Live AI Inference Engine Active</span>
+                    <span className="bg-purple-200 text-purple-800 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Interactive</span>
+                  </div>
+                  <p className="text-xs text-purple-700">Test any custom review: sentiment score, emotion, aspects, & fake risk scoring live.</p>
+                </div>
+              </div>
+              <span className="bg-purple-700 group-hover:bg-purple-800 text-white font-bold text-xs px-3.5 py-1.5 rounded-xl shrink-0 flex items-center gap-1 transition-all">
+                Test AI Model <ArrowRight className="w-3.5 h-3.5" />
+              </span>
+            </Link>
           </div>
         </div>
       </section>
