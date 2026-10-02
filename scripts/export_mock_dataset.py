@@ -1024,13 +1024,12 @@ for d in DEFINITIONS:
     }
     final_products.append(prod_obj)
 
-    # Also clone for alias IDs so any ID matches
+aliases_map = {}
+for d in DEFINITIONS:
     for al in d.get("aliases", []):
-        clone = dict(prod_obj)
-        clone["id"] = al
-        final_products.append(clone)
+        aliases_map[al] = d["id"]
 
-print(f"Total compiled products (with aliases): {len(final_products)}")
+print(f"Total unique products: {len(final_products)}, Total aliases: {len(aliases_map)}")
 
 # Write to frontend/src/services/mockData.ts
 ts_content = f"""/**
@@ -1089,6 +1088,8 @@ export interface MockProduct {{
 }}
 
 export const MOCK_PRODUCTS: MockProduct[] = {json.dumps(final_products, indent=2)};
+
+export const MOCK_PRODUCT_ALIASES: Record<string, string> = {json.dumps(aliases_map, indent=2)};
 
 export const MOCK_OWNER_OVERVIEW = {{
   total_products: {len(final_products)},

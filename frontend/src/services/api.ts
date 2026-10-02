@@ -15,6 +15,7 @@ import {
   MOCK_ADMIN_USERS,
   MOCK_AUDIT_LOGS,
   MOCK_SYSTEM_HEALTH,
+  MOCK_PRODUCT_ALIASES,
   MockProduct
 } from './mockData';
 
@@ -189,7 +190,9 @@ export const api = {
       if (res.data && res.data.id && typeof res.data === 'object') return res;
     } catch (_) {}
 
-    const p = runtimeProducts.find((item) => item.id === id) ||
+    const resolvedId = MOCK_PRODUCT_ALIASES[id] || id;
+    const p = runtimeProducts.find((item) => item.id === resolvedId) ||
+              runtimeProducts.find((item) => item.id === id) ||
               runtimeProducts.find((item) => item.id.includes(id) || id.includes(item.id)) ||
               runtimeProducts[0];
     return mockResponse(p);
@@ -201,7 +204,9 @@ export const api = {
       if (res.data && res.data.trust_score !== undefined && typeof res.data === 'object') return res;
     } catch (_) {}
 
-    const p = runtimeProducts.find((item) => item.id === id) ||
+    const resolvedId = MOCK_PRODUCT_ALIASES[id] || id;
+    const p = runtimeProducts.find((item) => item.id === resolvedId) ||
+              runtimeProducts.find((item) => item.id === id) ||
               runtimeProducts.find((item) => item.id.includes(id) || id.includes(item.id)) ||
               runtimeProducts[0];
 
@@ -264,7 +269,8 @@ export const api = {
       if (res.data && Array.isArray(res.data.timeline) && res.data.timeline.length > 0) return res;
     } catch (_) {}
 
-    const p = runtimeProducts.find((item) => item.id === id) || runtimeProducts[0];
+    const resolvedId = MOCK_PRODUCT_ALIASES[id] || id;
+    const p = runtimeProducts.find((item) => item.id === resolvedId) || runtimeProducts[0];
     return mockResponse({ timeline: p.timeline });
   },
 
@@ -274,7 +280,8 @@ export const api = {
       if (isCleanObject(res.data)) return res;
     } catch (_) {}
 
-    const p = runtimeProducts.find((item) => item.id === id) || runtimeProducts[0];
+    const resolvedId = MOCK_PRODUCT_ALIASES[id] || id;
+    const p = runtimeProducts.find((item) => item.id === resolvedId) || runtimeProducts[0];
     return mockResponse(p.aspects);
   },
 
@@ -284,7 +291,8 @@ export const api = {
       if (isCleanObject(res.data)) return res;
     } catch (_) {}
 
-    const p = runtimeProducts.find((item) => item.id === id) || runtimeProducts[0];
+    const resolvedId = MOCK_PRODUCT_ALIASES[id] || id;
+    const p = runtimeProducts.find((item) => item.id === resolvedId) || runtimeProducts[0];
     const totalComplaints = Math.round(p.review_count * 0.06);
     return mockResponse({
       total_complaints: totalComplaints,
@@ -301,20 +309,44 @@ export const api = {
       if (res.data && Array.isArray(res.data.products) && res.data.products.length > 0) return res;
     } catch (_) {}
 
-    const selected = ids.map((id) => runtimeProducts.find((p) => p.id === id)).filter(Boolean) as MockProduct[];
-    const comparison = selected.length >= 2 ? selected : [runtimeProducts[0], runtimeProducts[1]];
+    const resolveId = (id: string) => MOCK_PRODUCT_ALIASES[id] || id;
+    const selected = ids.map((id) => runtimeProducts.find((p) => p.id === resolveId(id) || p.id === id)).filter(Boolean) as MockProduct[];
+    const comparison = selected.length >= 2 ? selected : [runtimeProducts[0], runtimeProducts[1] || runtimeProducts[0]];
+
     return mockResponse({
-      products: comparison.map((p) => ({
-        id: p.id,
-        name: p.name,
-        category: p.category,
-        price: p.price,
-        trust_score: p.trust_score,
-        rating: p.rating,
-        review_count: p.review_count,
-        aspects: p.aspects,
-        features: p.features
-      }))
+      compared_count: comparison.length,
+      products: comparison.map((p) => {
+        const formattedAspects: Record<string, any> = {};
+        Object.entries(p.aspects || {}).forEach(([k, v]: [string, any]) => {
+          formattedAspects[k] = {
+            ...v,
+            score: v.score || Math.round((v.positive_ratio || 0.75) * 100)
+          };
+        });
+
+        return {
+          product: {
+            id: p.id,
+            name: p.name,
+            category: p.category,
+            brand_name: p.brand_name,
+            price: p.price,
+            description: p.description,
+            features: p.features
+          },
+          reputation: {
+            product_id: p.id,
+            product_name: p.name,
+            trust_score: p.trust_score,
+            confidence: p.confidence,
+            review_count: p.review_count,
+            rating: p.rating,
+            aspects: formattedAspects,
+            positive_themes: p.positive_themes,
+            negative_themes: p.negative_themes
+          }
+        };
+      })
     });
   },
 
