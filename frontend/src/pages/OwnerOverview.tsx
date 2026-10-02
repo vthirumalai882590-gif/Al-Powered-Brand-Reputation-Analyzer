@@ -34,7 +34,7 @@ export const OwnerOverview: React.FC = () => {
 
   const repIndex = overview.active_reputation_index || 70.0;
   const grade = repIndex >= 85 ? 'Grade A' : repIndex >= 70 ? 'Grade B+' : 'Grade C';
-  const totalReviews = overview.total_analyzed_feedback || 14914;
+  const totalReviews = overview.total_analyzed_feedback || 19053;
 
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-6">

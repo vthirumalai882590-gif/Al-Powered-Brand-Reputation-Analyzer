@@ -37,7 +37,7 @@ export const CustomerHome: React.FC = () => {
     }
   };
 
-  const totalReviewsCount = freshness?.total_feedback_records || 14914;
+  const totalReviewsCount = freshness?.total_feedback_records || 19053;
 
   const categories = [
     { name: 'Kitchen Appliances', icon: Utensils, path: '/search?category=Kitchen+Appliances' },
